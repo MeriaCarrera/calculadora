@@ -12,7 +12,28 @@
 </head>
  
 <body>
+    <!--2A CALCULADORA FETA: ELS NUMEROS COMPARTEIXEN FUNCIÓ -->
     <div class="calcul">
+        <h3 id="pantallaResultat"></h3>
+        <button type="button" value="7" onClick="posarNum(value)" class="btn btn-info m-1">7</button>
+        <button type="button" value="8" onClick="posarNum(value)" class="btn btn-info m-1">8</button>
+        <button type="button" value="9" onClick="posarNum(value)" class="btn btn-info m-1">9</button>
+        <button type="button" onClick="posarSuma()" class="btn btn-secondary m-1">+</button><br>
+        <button type="button" value="4" onClick="posarNum(value)" class="btn btn-info m-1">4</button>
+        <button type="button" value="5" onClick="posarNum(value)" class="btn btn-info m-1">5</button>
+        <button type="button" value="6" onClick="posarNum(value)" class="btn btn-info m-1">6</button>
+        <button type="button" onClick="posarResta()" class="btn btn-secondary m-1">-</button><br>
+        <button type="button" value="1" onClick="posarNum(value)" class="btn btn-info m-1">1</button>
+        <button type="button" value="2" onClick="posarNum(value)" class="btn btn-info m-1">2</button>
+        <button type="button" value="3" onClick="posarNum(value)" class="btn btn-info m-1">3</button>
+        <button type="button" onClick="posarMulti()" class="btn btn-secondary m-1">*</button><br>
+        <button type="button" onClick="borrarTot()" class="btn btn-secondary m-1">C</button>
+        <button type="button" value="0" onClick="posarNum(value)" class="btn btn-info m-1">0</button>
+        <button type="button" onClick="posarDivi()" class="btn btn-secondary m-1">/</button>
+        <button type="button" onClick="veureResultat()" class="btn btn-secondary m-1">=</button>
+
+    <!--1A CALCULADORA FETA: CADA NUMERO TENIA LA SEVA FUNCIÓ, GUARDO EL CODI PER CARINYO-->
+    <!--<div class="calcul">
         <h3 id="pantallaResultat">0</h3>
         <button type="button" onClick="posarSet()" class="btn btn-info m-1" >7</button>
         <button type="button" onClick="posarVuit()" class="btn btn-info m-1">8</button>
@@ -30,62 +51,20 @@
         <button type="button" onClick="posarZero()" class="btn btn-info m-1">0</button>
         <button type="button" onClick="posarDivi()" class="btn btn-secondary m-1">/</button>
         <button type="button" onClick="veureResultat()" class="btn btn-secondary m-1">=</button>
+    </div>-->
     </div>
 
     <script>
         let numero = "";
         let operacions = [];
 
-        //NUMEROS
-        function posarZero(){
-            numero = (numero*10) + 0;
+        // NUMEROS 2A CALCULADORA
+        function posarNum(value){
+            g = parseInt(value);
+            numero = (numero*10) + g;
             pantallaResultat.innerText=numero;
         }
 
-        function posarUn(){
-            numero = (numero*10) + 1;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarDos(){
-            numero = (numero*10) + 2;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarTres(){
-            numero = (numero*10) + 3;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarQuatre(){
-            numero = (numero*10) + 4;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarCinc(){
-            numero = (numero*10) + 5;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarSis(){
-            numero = (numero*10) + 6;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarSet(){
-            numero = (numero*10) + 7;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarVuit(){
-            numero = (numero*10) + 8;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarNou(){
-            numero = (numero*10) + 9;
-            pantallaResultat.innerText=numero;
-        }
 
         //BORRAR
         function borrarTot(){
@@ -193,6 +172,58 @@
             operacions = [];
             numero = "";
         }
+
+
+        //NUMEROS 1A CALCULADORA: CODI VELL QUE GUARDO PER CARINYO
+        /*function posarZero(){
+            numero = (numero*10) + 0;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarUn(){
+            numero = (numero*10) + 1;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarDos(){
+            numero = (numero*10) + 2;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarTres(){
+            numero = (numero*10) + 3;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarQuatre(){
+            numero = (numero*10) + 4;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarCinc(){
+            numero = (numero*10) + 5;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarSis(){
+            numero = (numero*10) + 6;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarSet(){
+            numero = (numero*10) + 7;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarVuit(){
+            numero = (numero*10) + 8;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarNou(){
+            numero = (numero*10) + 9;
+            pantallaResultat.innerText=numero;
+        }*/
 
     </script>
 </body>
