@@ -31,28 +31,6 @@
         <button type="button" value="0" onClick="posarNum(value)" class="btn btn-info m-1">0</button>
         <button type="button" value="/" onClick="posarOper(value)" class="btn btn-secondary m-1">/</button>
         <button type="button" onClick="veureResultat()" class="btn btn-secondary m-1">=</button>
-
-    <!--***ES POT IGNORAR****-->
-    <!--1A CALCULADORA FETA: CADA NUMERO TENIA LA SEVA FUNCIÓ, GUARDO EL CODI PER CARINYO-->
-    <!--<div class="calcul">
-        <h3 id="pantallaResultat">0</h3>
-        <button type="button" onClick="posarSet()" class="btn btn-info m-1" >7</button>
-        <button type="button" onClick="posarVuit()" class="btn btn-info m-1">8</button>
-        <button type="button" onClick="posarNou()" class="btn btn-info m-1">9</button>
-        <button type="button" onClick="posarSuma()" class="btn btn-secondary m-1">+</button><br>
-        <button type="button" onClick="posarQuatre()" class="btn btn-info m-1">4</button>
-        <button type="button" onClick="posarCinc()" class="btn btn-info m-1">5</button>
-        <button type="button" onClick="posarSis()" class="btn btn-info m-1">6</button>
-        <button type="button" onClick="posarResta()" class="btn btn-secondary m-1">-</button><br>
-        <button type="button" onClick="posarUn()" class="btn btn-info m-1">1</button>
-        <button type="button" onClick="posarDos()" class="btn btn-info m-1">2</button>
-        <button type="button" onClick="posarTres()" class="btn btn-info m-1">3</button>
-        <button type="button" onClick="posarMulti()" class="btn btn-secondary m-1">*</button><br>
-        <button type="button" onClick="borrarTot()" class="btn btn-secondary m-1">C</button>
-        <button type="button" onClick="posarZero()" class="btn btn-info m-1">0</button>
-        <button type="button" onClick="posarDivi()" class="btn btn-secondary m-1">/</button>
-        <button type="button" onClick="veureResultat()" class="btn btn-secondary m-1">=</button>
-    </div>-->
     </div>
 
     <script>
@@ -65,7 +43,6 @@
             numero = (numero*10) + g;
             pantallaResultat.innerText=numero;
         }
-
 
         //BORRAR
         function borrarTot(){
@@ -118,119 +95,6 @@
             operacions = [];
             numero = "";
         }
-
-        //***ES POT IGNORAR***
-        //NUMEROS I OPERACIONS 1A CALCULADORA: CODI VELL QUE GUARDO PER CARINYO PERO QUE JA NO ÉS IMPORTANT
-        /*function posarZero(){
-            numero = (numero*10) + 0;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarUn(){
-            numero = (numero*10) + 1;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarDos(){
-            numero = (numero*10) + 2;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarTres(){
-            numero = (numero*10) + 3;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarQuatre(){
-            numero = (numero*10) + 4;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarCinc(){
-            numero = (numero*10) + 5;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarSis(){
-            numero = (numero*10) + 6;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarSet(){
-            numero = (numero*10) + 7;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarVuit(){
-            numero = (numero*10) + 8;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarNou(){
-            numero = (numero*10) + 9;
-            pantallaResultat.innerText=numero;
-        }
-        
-        //SUMAR
-        function posarSuma(){
-            if (operacions==[]){
-            } else if(numero != ""){
-                operacions.push(numero);
-                operacions.push("+");
-                numero = "";
-                console.log(operacions);
-            }else if(operacions[operacions.length -1] == "+" ||operacions[operacions.length -1] == "-"||operacions[operacions.length -1] == "*"||operacions[operacions.length -1] == "/"){
-                operacions.pop()
-                operacions.push("+");
-                console.log(operacions);
-            }
-        }
-
-        //RESTAR
-        function posarResta(){
-            if (operacions==[]){
-            }else if(numero != ""){
-                operacions.push(numero);
-                operacions.push("-");
-                numero = "";
-                console.log(operacions);
-            }else if(operacions[operacions.length -1] == "+" ||operacions[operacions.length -1] == "-"||operacions[operacions.length -1] == "*"||operacions[operacions.length -1] == "/"){
-                operacions.pop()
-                operacions.push("-");
-                console.log(operacions);
-            } 
-        }
-
-        //MULTIPLICAR
-        function posarMulti(){
-            if (operacions==[]){
-            }else if(numero != ""){
-                operacions.push(numero);
-                operacions.push("*");
-                numero = "";
-                console.log(operacions);
-            }else if(operacions[operacions.length -1] == "+" ||operacions[operacions.length -1] == "-"||operacions[operacions.length -1] == "*"||operacions[operacions.length -1] == "/"){
-                operacions.pop()
-                operacions.push("*");
-                console.log(operacions);
-            } 
-        }
-
-        //DIVIDIR
-        function posarDivi(){
-            if (operacions==[]){
-            }else if(numero != ""){
-                operacions.push(numero);
-                operacions.push("/");
-                numero = "";
-                console.log(operacions);
-            }else if(operacions[operacions.length -1] == "+" ||operacions[operacions.length -1] == "-"||operacions[operacions.length -1] == "*"||operacions[operacions.length -1] == "/"){
-                operacions.pop()
-                operacions.push("/");
-                console.log(operacions);
-            } 
-        }*/
-
     </script>
 </body>
 </html>
