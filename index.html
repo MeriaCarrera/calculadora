@@ -18,20 +18,21 @@
         <button type="button" value="7" onClick="posarNum(value)" class="btn btn-info m-1">7</button>
         <button type="button" value="8" onClick="posarNum(value)" class="btn btn-info m-1">8</button>
         <button type="button" value="9" onClick="posarNum(value)" class="btn btn-info m-1">9</button>
-        <button type="button" onClick="posarSuma()" class="btn btn-secondary m-1">+</button><br>
+        <button type="button" value="+" onClick="posarOper(value)" class="btn btn-secondary m-1">+</button><br>
         <button type="button" value="4" onClick="posarNum(value)" class="btn btn-info m-1">4</button>
         <button type="button" value="5" onClick="posarNum(value)" class="btn btn-info m-1">5</button>
         <button type="button" value="6" onClick="posarNum(value)" class="btn btn-info m-1">6</button>
-        <button type="button" onClick="posarResta()" class="btn btn-secondary m-1">-</button><br>
+        <button type="button" value="-" onClick="posarOper(value)" class="btn btn-secondary m-1">-</button><br>
         <button type="button" value="1" onClick="posarNum(value)" class="btn btn-info m-1">1</button>
         <button type="button" value="2" onClick="posarNum(value)" class="btn btn-info m-1">2</button>
         <button type="button" value="3" onClick="posarNum(value)" class="btn btn-info m-1">3</button>
-        <button type="button" onClick="posarMulti()" class="btn btn-secondary m-1">*</button><br>
+        <button type="button" value="*" onClick="posarOper(value)" class="btn btn-secondary m-1">*</button><br>
         <button type="button" onClick="borrarTot()" class="btn btn-secondary m-1">C</button>
         <button type="button" value="0" onClick="posarNum(value)" class="btn btn-info m-1">0</button>
-        <button type="button" onClick="posarDivi()" class="btn btn-secondary m-1">/</button>
+        <button type="button" value="/" onClick="posarOper(value)" class="btn btn-secondary m-1">/</button>
         <button type="button" onClick="veureResultat()" class="btn btn-secondary m-1">=</button>
 
+    <!--***ES POT IGNORAR****-->
     <!--1A CALCULADORA FETA: CADA NUMERO TENIA LA SEVA FUNCIÓ, GUARDO EL CODI PER CARINYO-->
     <!--<div class="calcul">
         <h3 id="pantallaResultat">0</h3>
@@ -58,7 +59,7 @@
         let numero = "";
         let operacions = [];
 
-        // NUMEROS 2A CALCULADORA
+        // TOTS ELS NÚMEROS JUNTS
         function posarNum(value){
             g = parseInt(value);
             numero = (numero*10) + g;
@@ -73,6 +74,113 @@
             pantallaResultat.innerText=numero;
         }
 
+        // TOTES LES OPERACIONS JUNTES
+        function posarOper(value){
+            if (operacions==[]){
+            } else if(numero != ""){
+                operacions.push(numero);
+                operacions.push(value);
+                numero = "";
+                console.log(operacions);
+            }else if(operacions[operacions.length -1] == "+" ||operacions[operacions.length -1] == "-"||operacions[operacions.length -1] == "*"||operacions[operacions.length -1] == "/"){
+                operacions.pop()
+                operacions.push(value);
+                console.log(operacions);
+            }
+        }
+
+        //RESULTAT
+        function veureResultat(){
+            operacions.push(numero);
+            let num = operacions[0];
+            let signe = "";
+            console.log("array: " + operacions);
+            for (let i=0; i<operacions.length; i++){
+                if (operacions[i] == "+" ||operacions[i] == "-"||operacions[i] == "*"||operacions[i] == "/"){
+                    signe = operacions[i];
+                    console.log("signe: " + operacions[i])
+                }else{
+                    if (signe== "+"){
+                        num = num + operacions[i];
+                        if (num == Infinity){
+                            num=0;
+                        }
+                    }else if (signe== "-"){
+                        num = num - operacions[i];
+                        if (num == Infinity){
+                            num=0;
+                        }
+                    }else if (signe== "*"){
+                        num = num * operacions[i];
+                        if (num == Infinity){
+                            num=0;
+                        }
+                    }else if (signe== "/"){
+                        num = num / operacions[i];
+                        if (num == Infinity){
+                            num=0;
+                        }
+                    }
+                }
+            }
+            console.log(num);
+            pantallaResultat.innerText=num;
+            operacions = [];
+            numero = "";
+        }
+
+        //***ES POT IGNORAR***
+        //NUMEROS I OPERACIONS 1A CALCULADORA: CODI VELL QUE GUARDO PER CARINYO PERO QUE JA NO ÉS IMPORTANT
+        /*function posarZero(){
+            numero = (numero*10) + 0;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarUn(){
+            numero = (numero*10) + 1;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarDos(){
+            numero = (numero*10) + 2;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarTres(){
+            numero = (numero*10) + 3;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarQuatre(){
+            numero = (numero*10) + 4;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarCinc(){
+            numero = (numero*10) + 5;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarSis(){
+            numero = (numero*10) + 6;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarSet(){
+            numero = (numero*10) + 7;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarVuit(){
+            numero = (numero*10) + 8;
+            pantallaResultat.innerText=numero;
+        }
+
+        function posarNou(){
+            numero = (numero*10) + 9;
+            pantallaResultat.innerText=numero;
+        }
+        
         //SUMAR
         function posarSuma(){
             if (operacions==[]){
@@ -131,98 +239,6 @@
                 operacions.push("/");
                 console.log(operacions);
             } 
-        }
-
-        //RESULTAT
-        function veureResultat(){
-            operacions.push(numero);
-            let num = operacions[0];
-            let signe = "";
-            console.log("array: " + operacions);
-            for (let i=0; i<operacions.length; i++){
-                if (operacions[i] == "+" ||operacions[i] == "-"||operacions[i] == "*"||operacions[i] == "/"){
-                    signe = operacions[i];
-                    console.log("signe: " + operacions[i])
-                }else{
-                    if (signe== "+"){
-                        num = num + operacions[i];
-                        if (num == Infinity){
-                            num=0;
-                        }
-                    }else if (signe== "-"){
-                        num = num - operacions[i];
-                        if (num == Infinity){
-                            num=0;
-                        }
-                    }else if (signe== "*"){
-                        num = num * operacions[i];
-                        if (num == Infinity){
-                            num=0;
-                        }
-                    }else if (signe== "/"){
-                        num = num / operacions[i];
-                        if (num == Infinity){
-                            num=0;
-                        }
-                    }
-                }
-            }
-            console.log(num);
-            pantallaResultat.innerText=num;
-            operacions = [];
-            numero = "";
-        }
-
-
-        //NUMEROS 1A CALCULADORA: CODI VELL QUE GUARDO PER CARINYO
-        /*function posarZero(){
-            numero = (numero*10) + 0;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarUn(){
-            numero = (numero*10) + 1;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarDos(){
-            numero = (numero*10) + 2;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarTres(){
-            numero = (numero*10) + 3;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarQuatre(){
-            numero = (numero*10) + 4;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarCinc(){
-            numero = (numero*10) + 5;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarSis(){
-            numero = (numero*10) + 6;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarSet(){
-            numero = (numero*10) + 7;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarVuit(){
-            numero = (numero*10) + 8;
-            pantallaResultat.innerText=numero;
-        }
-
-        function posarNou(){
-            numero = (numero*10) + 9;
-            pantallaResultat.innerText=numero;
         }*/
 
     </script>
