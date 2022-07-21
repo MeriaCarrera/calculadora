@@ -76,16 +76,16 @@
 
         // TOTES LES OPERACIONS JUNTES
         function posarOper(value){
+            let o = operacions[operacions.length -1];
             if (operacions==[]){
             } else if(numero != ""){
                 operacions.push(numero);
                 operacions.push(value);
                 numero = "";
-                console.log(operacions);
-            }else if(operacions[operacions.length -1] == "+" ||operacions[operacions.length -1] == "-"||operacions[operacions.length -1] == "*"||operacions[operacions.length -1] == "/"){
+
+            }else if(o == "+" ||o == "-"||o == "*"||o == "/"){
                 operacions.pop()
                 operacions.push(value);
-                console.log(operacions);
             }
         }
 
